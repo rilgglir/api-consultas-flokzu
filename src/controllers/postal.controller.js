@@ -1,0 +1,1 @@
+export const getPostal = (req, res) => res.send('obteniendo info de Codigo Postal');
