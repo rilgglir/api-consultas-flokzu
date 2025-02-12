@@ -1,4 +1,5 @@
-import { createPool } from "mysql2/promise"
+import pg from "pg";
+
 import {
     DB_HOST,
     DB_PORT,
@@ -7,12 +8,22 @@ import {
     DB_DATABASE
 } from './config.js';
 
+export const pool = new pg.Pool({
+    host: DB_HOST,
+    port: DB_PORT,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_DATABASE
+});
 
-export const pool = createPool({
+//import { createPool } from "mysql2/promise"
+
+//Inicialmente se usaba mysql, pero se cambió a postgresql
+/*export const pool = createPool({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASSWORD,
     port: DB_PORT,
     database: DB_DATABASE
 })
-
+*/
