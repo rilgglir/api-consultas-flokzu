@@ -1,5 +1,18 @@
 import pg from "pg";
+const { Pool } = pg;
 
+import {
+    DATABASE_URL
+} from './config.js';
+
+export const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+});
+
+/*
 import {
     DB_HOST,
     DB_PORT,
@@ -14,7 +27,7 @@ export const pool = new pg.Pool({
     user: DB_USER,
     password: DB_PASSWORD,
     database: DB_DATABASE
-});
+});*/
 
 //import { createPool } from "mysql2/promise"
 
