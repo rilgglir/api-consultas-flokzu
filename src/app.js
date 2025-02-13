@@ -25,12 +25,12 @@ const apiKeyMiddleware = (req, res, next) => {
     }
 };
 
+app.use('/api',cors());
 //app.use('/api/ping',apiKeyMiddleware);
 app.use('/api',limiter);
 app.use('/api',docsRoutes);
 app.use('/api',indexRoutes);
 app.use('/api',postalRoutes);
-app.use('/api',cors());
 
 
 app.use((req,res, next) => {

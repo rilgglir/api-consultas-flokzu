@@ -1,6 +1,6 @@
 function consulta(){
   
-    console.log("Ejecutando consulta");
+    console.log("Ejecutando consulta con CORS");
     var matricula = Flokzu.getFieldValue([[Matricula]]);
     var generico = "https://api-consultas-flokzu.vercel.app/api/docs/"+matricula;
     var xhr = new XMLHttpRequest();
@@ -8,7 +8,7 @@ function consulta(){
     xhr.open('GET', generico);
     console.log("Ejecutando consulta a "+generico);
 
-    xhr.setRequestHeader('x-api-key', 'be517257-2017-4b07-97e3-ad733ac27bf6');
+    //xhr.setRequestHeader('x-api-key', 'be517257-2017-4b07-97e3-ad733ac27bf6');
     
     xhr.onreadystatechange = function() { 
         console.log("Enviada consulta");
