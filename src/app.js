@@ -29,6 +29,7 @@ app.use('/api',docsRoutes);
 app.use('/api',indexRoutes);
 app.use('/api',postalRoutes);
 
+
 app.use((req,res, next) => {
     res.status(404).json({
         message: "endpoint no encontrado"

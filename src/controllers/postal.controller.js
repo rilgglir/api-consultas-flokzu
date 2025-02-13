@@ -1,6 +1,7 @@
 import { pool } from '../db.js';
 
 export const getPostal = async (req, res) => {
+
     try {
         const { cp } = req.params;
         const result = await pool.query('SELECT * FROM postal WHERE Codigo_Postal = $1', [cp]);
