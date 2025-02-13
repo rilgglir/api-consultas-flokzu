@@ -7,12 +7,7 @@ import cors from 'cors';
 
 const app = express();
 const validApiKeys = ['be517257-2017-4b07-97e3-ad733ac27bf6','1d58dd1e-b82b-48cb-8608-9c6a6192884e', '3f97220e-8c31-42aa-8735-f2c6fe7c3c06'];
-const corsOptions = {
-    origin: '*', // Origen de la petición
-    methods: 'GET,HEAD',
-    credentials: true,
-    optionsSuccessStatus: 204
-};
+
 
 const limiter = rateLimit({
 
@@ -35,7 +30,7 @@ app.use('/api',limiter);
 app.use('/api',docsRoutes);
 app.use('/api',indexRoutes);
 app.use('/api',postalRoutes);
-app.use(cors(corsOptions));
+app.use('/api',cors());
 
 
 app.use((req,res, next) => {
