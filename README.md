@@ -8,10 +8,19 @@ Se conecta a una base de datos en postgres:
 Nombre de base: consultas_flokzu
 Tablas: postal , base_correspondencia
 
+<h2>Dependencias</h2>
+{
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "pg": "^8.13.2"
+},
+
 <h2>Seguridad</h2>
 Se tiene seguridad con las siguientes opciones:
 <ul>
-  <li>-Limit_rate : permite solo 200 solicitudes cada 15 minutos para evitar ataques</li>
+  <li>Limit_rate : permite solo 200 solicitudes cada 15 minutos para evitar ataques</li>
   <li>Api key : se permiten solo un par de api key, solo se comparten para la implementación interna de la universidad</li>
   <li>CORS : se permite solo acceso al dominio Flokzu</li>
 </ul>
@@ -20,7 +29,7 @@ Nota: En la versión final se configura CORS para permitir consultas desde orige
 
 <h2>Consultas para codigo postal</h2>
 Consultas para devolver los datos usados por correspondencia para saber si un codigo postal tiene cobertura para la entrega de los documentos
-Ruta de consulta: host/api/postal/{codigoPostal}
+Ruta de consulta: host/api/postal?cp={codigoPostal}
 Ejemplo de respuesta: 
 [
   {
@@ -34,7 +43,7 @@ Ejemplo de respuesta:
 
 <h2>Consultas para estado de documentos</h2>
 Consultas para devolver los datos usados para validar el estado de documentación de un estudiante, según su matrícula
-Ruta de consulta: host/api/docs/{matricula}
+Ruta de consulta: host/api/docs/?matricula={matricula}
 Ejemplo de respuesta: 
 [
   {
