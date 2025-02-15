@@ -4,8 +4,7 @@ export const getPing = async(req, res) => {
 
     try{
         
-        const result = await pool.query('SELECT 1 + 1 AS result');
-        console.log(result);
+        const result = 'Prueba correcta';
         res.json(result);
 
     }catch (error){

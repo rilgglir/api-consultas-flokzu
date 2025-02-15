@@ -3,7 +3,7 @@ import { pool } from '../db.js';
 export const getDocs = async(req, res) => {
   
     try{
-        const { matricula } = req.params;
+        const { matricula } = req.query;
         const result = await pool.query('SELECT estatus, estatus_titulacion, estatus_expediente_fisico, estatus_expediente_digital FROM base_correspondencia WHERE MATRICULA = $1', [matricula]);
         
         if (result.rows.length <= 0) {
